@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
   res.send('It works!');
 });
 
-app.get('/messenger/webhook', function (req, res) {
+app.get('/messenger/webhooks', function (req, res) {
   if (req.query['hub.verify_token'] === app.get('verify_token')) {
     res.send(req.query['hub.challenge']);
   } else {
@@ -23,7 +23,7 @@ app.get('/messenger/webhook', function (req, res) {
   }
 });
 
-app.post('/messenger/webhook/', function (req, res) {
+app.post('/messenger/webhooks', function (req, res) {
   console.log (req.body);
   messaging_events = req.body.entry[0].messaging;
   for (i = 0; i < messaging_events.length; i++) {
