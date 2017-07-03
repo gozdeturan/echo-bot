@@ -16,9 +16,10 @@ This project is written in Node.js and Express to stay in line with the official
 
 4) Subscribe to that app. (If you use correct credentials, code will automatically subscribe to that page)
 
-5) Create a proxy using Facebook `App Credentials` on [ChatbotProxy](https://www.chatbotproxy.com/proxies/new). It will give `Proxy Url(BASE_URI)` and `Proxy Token(PROXY_TOKEN)`
+5) Create a proxy using Facebook `App Credentials` on [ChatbotProxy](https://www.chatbotproxy.com/proxies/new). It will give `Proxy Url(BASE_URI)` and `Proxy Token(PROXY_TOKEN)`. Your app callback url is `https://{your_heroku_app_ _name}.herokuapp.com/messenger/webhooks`.
 
 6) Click deploy button and set `PAGE_ACCESS_TOKEN`, `BASE_URI` and `PROXY_TOKEN`.
+
 
 Hint: To see full instructions on how to enable in Facebook. [Follow the official guide](https://developers.facebook.com/docs/messenger-platform/quickstart)
 
