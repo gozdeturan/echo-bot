@@ -29,7 +29,7 @@ app.post('/messenger/webhooks', function (req, res) {
   for (i = 0; i < messaging_events.length; i++) {
     event = req.body.entry[0].messaging[i];
     sender = event.sender.id;
-    if (event.message && even.message.is_echo) {
+    if (event.message && event.message.is_echo) {
       console.log("Echo Received!")
     } else if (event.message && event.message.text) {
       text = event.message.text;
