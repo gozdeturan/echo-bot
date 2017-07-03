@@ -1,5 +1,5 @@
 {
-    "name": "Facebook Messenger Bot with ChatbotProxy",
+    "name": "Facebook Messenger EchoBot",
     "description": "A Node.js app using Express that supports Facebook Messenger Webhooks with ChatbotProxy",
     "repository": "https://github.com/gozdeturan/echo-bot",
     "logo": "https://avatars2.githubusercontent.com/u/29864404?v=3&s=460",
