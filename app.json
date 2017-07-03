@@ -1,0 +1,28 @@
+{
+    "name": "Facebook Messenger Bot with ChatbotProxy",
+    "description": "A Node.js app using Express that supports Facebook Messenger Webhooks with ChatbotProxy",
+    "repository": "https://github.com/gozdeturan/echo-bot",
+    "logo": "https://avatars2.githubusercontent.com/u/29864404?v=3&s=460",
+    "keywords": ["node", "heroku", "express", "facebook", "messenger", "chatbotproxy"],
+    "scripts": {
+        "postdeploy": "curl -ik -X POST \"https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=$PAGE_ACCESS_TOKEN\""
+    },
+    "env": {
+        "BASE_URI": {
+            "description": "Proxy url generated on chatbotproxy.com/proxies",
+            "value": "https://us.chatbotproxy.com/your_proxy_id"
+        },
+        "PROXY_TOKEN": {
+            "description": "Token generated on chatbotproxy.com/proxies",
+            "value": "TEST"
+        },
+        "VERIFY_TOKEN": {
+            "description": "A secret key needed to check calls from Facebook. If you are using ChatbotProxy, it handles this call for you.",
+            "generator": "secret"
+        },
+        "PAGE_ACCESS_TOKEN": {
+            "description": "The Page Token provided by Facebook under Get Page Access Token section",
+            "value": "NULL"
+        }
+    }
+}

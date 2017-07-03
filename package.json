@@ -1,0 +1,31 @@
+{
+  "name": "echo-bot",
+  "version": "0.1.0",
+  "description": "A sample Facebook Messenger Bot Echo Bot using chatbotproxy",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "1.17.2",
+    "ejs": "2.5.6",
+    "express": "4.15.3",
+    "request": "2.81.0"
+  },
+  "engines": {
+    "node": "0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gozdeturan/echo-bot"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "facebook",
+    "messenger",
+    "chatbotproxy"
+  ],
+  "license": "MIT"
+}
