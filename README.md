@@ -25,8 +25,6 @@ Hint: To see full instructions on how to enable in Facebook. [Follow the officia
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
-## Licencse
+## License
 
-MIT
-
-License note: This code is modified from original repo: https://github.com/culturekings/facebook-messenger-bot-webhook
+Apache 2.0
