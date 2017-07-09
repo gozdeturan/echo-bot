@@ -61,6 +61,7 @@ function sendButtonMessage(sender) {
         type: "template",
         payload: {
           template_type: "button",
+          sharable: true,
           text: "Hello,\nI'am EchoBot, an opensource chatbot.\nWhen you type something, I will reply with exacyly the same.",
           buttons:[{
             type: "web_url",
