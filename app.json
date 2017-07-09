@@ -3,7 +3,7 @@
     "description": "A Node.js app using Express that supports Facebook Messenger Webhooks with ChatbotProxy",
     "repository": "https://github.com/gozdeturan/echo-bot",
     "logo": "https://avatars2.githubusercontent.com/u/29864404?v=3&s=460",
-    "keywords": ["node", "heroku", "express", "facebook", "messenger", "chatbotproxy"],
+    "keywords": ["nodejs", "facebook messenger", "chatbot", "echobot", "chatbotproxy"],
     "scripts": {
         "postdeploy": "curl -ik -X POST \"https://graph.facebook.com/v2.6/me/subscribed_apps?access_token=$PAGE_ACCESS_TOKEN\"; curl -ik -X POST -H \"Content-Type: application/json\" -d '{\"get_started\":{\"payload\":\"GET_STARTED_PAYLOAD\"}}' \"https://graph.facebook.com/v2.6/me/messenger_profile?access_token=$PAGE_ACCESS_TOKEN\""
     },
