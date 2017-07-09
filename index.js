@@ -35,7 +35,7 @@ app.post('/messenger/webhooks', function (req, res) {
       text = event.message.text;
       sendTextMessage(sender, text.substring(0, 200));
     } else if (event.postback && event.postback.payload == 'GET_STARTED_PAYLOAD') {
-      sendButtonMessage(sender);
+      callUserProfileAPI(sender, sendButtonMessage)
     }
   }
   res.sendStatus(200);
@@ -51,7 +51,8 @@ function sendTextMessage(sender, text) {
   callSendAPI(messageData)
 }
 
-function sendButtonMessage(sender) {
+function sendButtonMessage(sender, userProfile) {
+  userProfile = JSON.parse(userProfile)
   var messageData = {
     recipient: {
       id: sender
@@ -62,7 +63,7 @@ function sendButtonMessage(sender) {
         payload: {
           template_type: "button",
           sharable: true,
-          text: "Hello,\nI'am EchoBot, an opensource chatbot.\nWhen you type something, I will reply with exacyly the same.",
+          text: "Hello " + userProfile.first_name + ",\nI'am EchoBot, an opensource chatbot.\nWhen you type something, I will reply with exacyly the same.",
           buttons:[{
             type: "web_url",
             url: "https://github.com/gozdeturan/echo-bot",
@@ -95,6 +96,25 @@ function callSendAPI(jsonBody) {
       console.log('Error sending message: ', error);
     } else if (response.body.error) {
       console.log('Error: ', response.body.error);
+    }
+  });
+}
+
+function callUserProfileAPI(sender, cb) {
+  request({
+    url: app.get('base_uri') + '/v2.6/' + sender,
+    qs: {access_token:app.get('page_access_token'), fields:'first_name,last_name,profile_pic,locale,timezone,gender'},
+    method: 'GET',
+    headers: {
+      'X-Proxy-Token': app.get('proxy_token')
+    }
+  }, function(error, response, body) {
+    if (error) {
+      console.log('Error sending message: ', error);
+    } else if (response.body.error) {
+      console.log('Error: ', response.body.error);
+    } else {
+      cb(sender, body)
     }
   });
 }
