@@ -34,6 +34,8 @@ app.post('/messenger/webhooks', function (req, res) {
     } else if (event.message && event.message.text) {
       text = event.message.text;
       sendTextMessage(sender, text.substring(0, 200));
+    } else if (event.postback && event.postback.payload == 'GET_STARTED_PAYLOAD') {
+      sendButtonMessage(sender);
     }
   }
   res.sendStatus(200);
@@ -41,8 +43,43 @@ app.post('/messenger/webhooks', function (req, res) {
 
 function sendTextMessage(sender, text) {
   messageData = {
-    text:text
+    recipient: {id:sender},
+    message: {
+      text:text
+    }
   }
+  callSendAPI(messageData)
+}
+
+function sendButtonMessage(sender) {
+  var messageData = {
+    recipient: {
+      id: sender
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: "Hello,\nI'am EchoBot, an opensource chatbot.\nWhen you type something, I will reply with exacyly the same.",
+          buttons:[{
+            type: "web_url",
+            url: "https://github.com/gozdeturan/echo-bot",
+            title: "Source Code"
+          }, {
+            type: "web_url",
+            url: "https://www.chatbotproxy.com",
+            title: "ChatbotProxy"
+          }]
+        }
+      }
+    }
+  };  
+
+  callSendAPI(messageData);
+}
+
+function callSendAPI(jsonBody) {
   request({
     url: app.get('base_uri') + '/v2.6/me/messages',
     qs: {access_token:app.get('page_access_token')},
@@ -51,10 +88,7 @@ function sendTextMessage(sender, text) {
       'Content-Type': 'application/json',
       'X-Proxy-Token': app.get('proxy_token')
     },
-    json: {
-      recipient: {id:sender},
-      message: messageData,
-    }
+    json: jsonBody
   }, function(error, response, body) {
     if (error) {
       console.log('Error sending message: ', error);
