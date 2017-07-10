@@ -20,10 +20,13 @@ This project is written in Node.js and Express to stay in line with the official
 
 6) Click deploy button and set `PAGE_ACCESS_TOKEN`, `BASE_URI` and `PROXY_TOKEN`.
 
-
 Hint: To see full instructions on how to enable in Facebook. [Follow the official guide](https://developers.facebook.com/docs/messenger-platform/quickstart)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+## Demo
+
+Chat with the demo : https://m.me/EchoBot-ChatbotProxy-1795982270693419
 
 ## License
 
