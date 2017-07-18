@@ -26,7 +26,7 @@ Hint: To see full instructions on how to enable in Facebook. [Follow the officia
 
 ## Demo
 
-Chat with the demo : https://m.me/EchoBot-ChatbotProxy-1795982270693419
+Chat with the demo : https://www.messenger.com/t/1795982270693419
 
 ## License
 
